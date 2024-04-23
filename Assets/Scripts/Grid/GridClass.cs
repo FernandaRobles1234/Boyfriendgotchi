@@ -28,6 +28,16 @@ public class GridClass<T>
         }
     }
 
+    public int Width
+    {
+        get { return width; }
+    }
+
+    public int Height
+    {
+        get { return height; }
+    }
+
     // Method to get the value of a cell
     public T GetValue(int x, int y)
     {
