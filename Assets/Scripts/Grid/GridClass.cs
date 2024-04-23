@@ -6,7 +6,7 @@ public class GridClass<T>
 {
     private int width;
     private int height;
-    private float cellSize;
+    public float cellSize;
     private T[,] gridArray;
     private Vector3 startPosition;
 
@@ -44,7 +44,7 @@ public class GridClass<T>
     // Method to set the value of a cell
     public void SetValue(int x, int y, T value)
     {
-        if (x >= 0 && y >= 0 && x < width && y < height)
+        if (x >= 0 && y >= 0 && x < width  && y < height)
         {
             gridArray[x, y] = value;
         }
@@ -59,8 +59,8 @@ public class GridClass<T>
     // Method to get the grid coordinates from the world position
     public void GetXY(Vector3 worldPosition, out int x, out int y)
     {
-        x = Mathf.FloorToInt(worldPosition.x / cellSize);
-        y = Mathf.FloorToInt(worldPosition.z / cellSize);
+        x = Mathf.FloorToInt((worldPosition.x - startPosition.x)/ cellSize);
+        y = Mathf.FloorToInt((worldPosition.y - startPosition.y)/ cellSize);
     }
 
     // Method to display the grid in the Unity Editor

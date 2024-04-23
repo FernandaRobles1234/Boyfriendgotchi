@@ -1,14 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.U2D;
 
 public class GridNonWalkable : MonoBehaviour
 {
     public GameObject _goGrid;
+    public BoxCollider2D _boxCollider;
+
     private TestGrid _testGrid;
-    public int _sqrSize= 0;
     private int _newX;
     private int _newY;
+
+    
 
     private void Awake()
     {
@@ -16,10 +21,19 @@ public class GridNonWalkable : MonoBehaviour
     }
     void Start()
     {
-        _testGrid._grid.GetXY(transform.position, out _newX, out _newY);
+        Vector3 boundsInMeters = _boxCollider.bounds.size;
 
-        _testGrid._grid.SetValue(_newX, _newY, 1);
-        print(_testGrid._grid.GetValue(_newX, _newY)); ;
+        
+        _testGrid._grid.GetXY(transform.position - boundsInMeters * 0.5f, out _newX, out _newY);
+
+        for (int i = 0; i <= Mathf.CeilToInt(boundsInMeters.x/(_testGrid._grid.cellSize)); i++)
+        {
+            for(int j = 0; j < Mathf.CeilToInt(boundsInMeters.y / (_testGrid._grid.cellSize)); j++)
+            {
+                _testGrid._grid.SetValue(_newX + i, _newY + j, 1);
+                print($"At {_newX + i}, {_newY + j}, val= {_testGrid._grid.GetValue(_newX + i, _newY + j)}");
+            }
+        }
     }
 
     void Update()
