@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class InitPathFinding : MonoBehaviour
 {
-    PathFinding _pathFinding;
-    void Start()
+    public PathFinding _pathFinding;
+    void Awake()
     {
         _pathFinding = new PathFinding(40, 15, transform.position);
         _pathFinding._grid.DebugDrawGrid();

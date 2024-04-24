@@ -12,12 +12,14 @@ public class PathNode
     public int _hCost;
     public int _fCost;
 
+    public bool _isWalkable;
     public PathNode _parentNode;
     public PathNode(GridClass<PathNode> grid, int x, int y)
     {
         _grid = grid;
         _x = x;
         _y = y;
+        _isWalkable = true;
     }
 
     public void CalculateFCost()
@@ -26,6 +28,6 @@ public class PathNode
     }
     public override string ToString()
     {
-        return _x + ", " + _y;
+        return _x + ", " + _y + "," + _isWalkable.ToString();
     }
 }

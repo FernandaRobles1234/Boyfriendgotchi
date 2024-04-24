@@ -54,6 +54,11 @@ public class PathFinding
             foreach (PathNode neighbourNode in GetNeighbourList(currentNode))
             {
                 if (_closedList.Contains(neighbourNode)) continue;
+                if (!neighbourNode._isWalkable)
+                {
+                    _closedList.Add(neighbourNode);
+                    continue;
+                }
 
                 int tentativeGCost = currentNode._gCost + CalculateDistanceCost(currentNode, neighbourNode);
                 if (tentativeGCost < neighbourNode._gCost)
@@ -108,8 +113,14 @@ public class PathFinding
         path.Add(endNode);
 
         PathNode currentNode = endNode;
+        while (currentNode._parentNode != null)
+        {
+            path.Add(currentNode._parentNode);
+            currentNode = currentNode._parentNode;
+        }
+        path.Reverse();
 
-        return null;
+        return path;
     }
     private int CalculateDistanceCost(PathNode a, PathNode b)
     {
