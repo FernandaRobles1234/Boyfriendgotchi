@@ -8,7 +8,7 @@ public class AIController : MonoBehaviour
     private CharacterMotor _motor;
 
     public float _sleepy= 0;
-    public const float _sleepyMax= 12;
+    public const float _sleepyMax= 2;
 
     private void Awake() 
     { 

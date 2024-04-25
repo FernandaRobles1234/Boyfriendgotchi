@@ -5,9 +5,13 @@ using UnityEngine;
 public class InitPathFinding : MonoBehaviour
 {
     public PathFinding _pathFinding;
+
+    public int w;
+    public int h;
+
     void Awake()
     {
-        _pathFinding = new PathFinding(40, 15, transform.position);
+        _pathFinding = new PathFinding(w, h, transform.position);
         _pathFinding._grid.DebugDrawGrid();
     }
 

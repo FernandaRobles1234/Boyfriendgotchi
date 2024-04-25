@@ -1,7 +1,10 @@
 using BehaviorDesigner.Runtime.Tasks.Unity.UnityTime;
+using BehaviorDesigner.Runtime.Tasks.Unity.UnityVector3;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using Unity.VisualScripting.FullSerializer;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -12,10 +15,11 @@ public class SleepingState : State
     AIController _controller;
 
     private BedObject[] _BedObjects;
+    private InitPathFinding[] _initPathFindings;
 
-    //[SerializeField] Transform target;
-    //NavMeshAgent agent;
-    
+    private List<PathNode> _pathToBed;
+
+    int _i = 0;
 
     public SleepingState(GameObject go, StateMachine sm) : base(go, sm)
     {
@@ -29,18 +33,25 @@ public class SleepingState : State
 
         _BedObjects = GameObject.FindObjectsOfType<BedObject>();
 
-        //agent = _go.GetComponent<NavMeshAgent>();
-        //agent.updateRotation = false;
-        //agent.updateUpAxis = false;
+        _initPathFindings = GameObject.FindObjectsOfType<InitPathFinding>();
+
+        Vector3 characterPosition = _go.transform.position;
+        Vector3 bedPosition = _BedObjects[0].transform.position;
+
+        _pathToBed = _initPathFindings[0]._pathFinding.FindPath(characterPosition.x, characterPosition.y, bedPosition.x, bedPosition.y);
     }
 
 
     public override void FixedUpdate()
     {
+        
+        PathNode firstNode = _pathToBed[_i];
+        Vector3 characterPosition = _go.transform.position;
 
-        _charMotor._moveDir = _BedObjects[0].transform.position - _go.transform.position;
+        Debug.Log(firstNode);
+        Vector3 _moveDir= _initPathFindings[0]._pathFinding._grid.GetWorldPosition(firstNode._x, firstNode._y + 2) - characterPosition ;
+        _charMotor._moveDir = _moveDir;
         _charMotor._moveDir.Normalize();
-
 
         if (_charMotor.IsMoving())
         {
@@ -51,6 +62,17 @@ public class SleepingState : State
         else
         {
             _animator.SetBool("isWalking", false);
+        }
+
+        if (_moveDir.sqrMagnitude < 0.5)
+        {
+            _i++;
+            if (_i >= _pathToBed.Count)
+            {
+                // Once again check if we've reached the last node after incrementing
+                _charMotor._moveDir = Vector3.zero;
+                _animator.SetBool("isWalking", false);
+            }
         }
     }
     public override void Exit()

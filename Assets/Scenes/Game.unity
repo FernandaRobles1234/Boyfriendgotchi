@@ -167,6 +167,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3aa69de1ad1b094fbfb05c71929f030, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  w: 79
+  h: 20
 --- !u!1 &722128909
 GameObject:
   m_ObjectHideFlags: 0
@@ -180,6 +182,7 @@ GameObject:
   - component: {fileID: 722128911}
   - component: {fileID: 722128910}
   - component: {fileID: 722128914}
+  - component: {fileID: 722128915}
   m_Layer: 0
   m_Name: BedPart2
   m_TagString: Untagged
@@ -219,7 +222,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.12063973}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -230,7 +233,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.46875, y: 0.359375}
+  m_Size: {x: 0.46875, y: 0.11809554}
   m_EdgeRadius: 0
 --- !u!50 &722128911
 Rigidbody2D:
@@ -299,7 +302,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1000
   m_Sprite: {fileID: -1379068114, guid: 4c95b0337e613c644bd3824b9af0d556, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -333,11 +336,25 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 722128909}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc2f2a0d161a3ee4eb6b8abcf4d46a89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &722128915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 722128909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b992b91649b8b649957f7ece0ee80ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _goPathFinding: {fileID: 151184155}
+  _boxCollider: {fileID: 722128910}
 --- !u!1001 &781834542
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -449,11 +466,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5755733603711121844, guid: 3a4b1cd2299e62c4f9e264110ec8b04d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -14.87
+      value: 3.37
       objectReference: {fileID: 0}
     - target: {fileID: 5755733603711121844, guid: 3a4b1cd2299e62c4f9e264110ec8b04d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.52
+      value: 0.79
       objectReference: {fileID: 0}
     - target: {fileID: 5755733603711121844, guid: 3a4b1cd2299e62c4f9e264110ec8b04d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -522,6 +539,7 @@ GameObject:
   - component: {fileID: 1101474411}
   - component: {fileID: 1101474414}
   - component: {fileID: 1101474415}
+  - component: {fileID: 1101474416}
   m_Layer: 0
   m_Name: BedPart1
   m_TagString: Untagged
@@ -616,7 +634,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1101474410}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.06, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -655,7 +673,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.13021117}
+  m_Offset: {x: 0, y: -0.19522285}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -666,7 +684,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.46875, y: 0.19270264}
+  m_Size: {x: 0.46875, y: 0.062679276}
   m_EdgeRadius: 0
 --- !u!114 &1101474415
 MonoBehaviour:
@@ -680,6 +698,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc2f2a0d161a3ee4eb6b8abcf4d46a89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1101474416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1101474410}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b992b91649b8b649957f7ece0ee80ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _goPathFinding: {fileID: 151184155}
+  _boxCollider: {fileID: 1101474414}
 --- !u!1 &1364157597
 GameObject:
   m_ObjectHideFlags: 0
@@ -693,6 +725,7 @@ GameObject:
   - component: {fileID: 1364157599}
   - component: {fileID: 1364157602}
   - component: {fileID: 1364157604}
+  - component: {fileID: 1364157605}
   m_Layer: 0
   m_Name: Table
   m_TagString: Untagged
@@ -787,7 +820,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1364157597}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.79, y: -3.72, z: 0}
+  m_LocalPosition: {x: -15.05, y: -6.65, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -851,6 +884,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.71875, y: 0.703125}
   m_EdgeRadius: 0
+--- !u!114 &1364157605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1364157597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b992b91649b8b649957f7ece0ee80ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _goPathFinding: {fileID: 151184155}
+  _boxCollider: {fileID: 1364157604}
 --- !u!1 &1406915460
 GameObject:
   m_ObjectHideFlags: 0
@@ -864,6 +911,7 @@ GameObject:
   - component: {fileID: 1406915461}
   - component: {fileID: 1406915465}
   - component: {fileID: 1406915467}
+  - component: {fileID: 1406915468}
   m_Layer: 0
   m_Name: Sofa
   m_TagString: Untagged
@@ -958,7 +1006,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1406915460}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 27.66, y: -7.93, z: 0}
+  m_LocalPosition: {x: -2.75, y: -5.96, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1022,6 +1070,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.3125, y: 0.65625}
   m_EdgeRadius: 0
+--- !u!114 &1406915468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1406915460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b992b91649b8b649957f7ece0ee80ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _goPathFinding: {fileID: 151184155}
+  _boxCollider: {fileID: 1406915467}
 --- !u!1 &1440373716
 GameObject:
   m_ObjectHideFlags: 0
@@ -1047,7 +1109,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1440373716}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15, y: 2, z: 0}
+  m_LocalPosition: {x: -15, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -1081,6 +1143,7 @@ GameObject:
   - component: {fileID: 1725199719}
   - component: {fileID: 1725199717}
   - component: {fileID: 1725199718}
+  - component: {fileID: 1725199722}
   m_Layer: 0
   m_Name: Chair
   m_TagString: Untagged
@@ -1232,13 +1295,27 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1725199716}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.46, y: -4.01, z: 0}
+  m_LocalPosition: {x: -9.76, y: -4.95, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1725199722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1725199716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b992b91649b8b649957f7ece0ee80ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _goPathFinding: {fileID: 151184155}
+  _boxCollider: {fileID: 1725199717}
 --- !u!1 &1869820138 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 950299231016537696, guid: 3a4b1cd2299e62c4f9e264110ec8b04d, type: 3}
@@ -1251,7 +1328,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1869820138}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -1276,7 +1353,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0100981, y: -0.20090088}
+  m_Offset: {x: 0.003985539, y: -0.2355698}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1287,7 +1364,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.20484859, y: 0.098198235}
+  m_Size: {x: 0.13204384, y: 0.055564523}
   m_EdgeRadius: 0
 --- !u!114 &1869820146
 MonoBehaviour:
@@ -1327,6 +1404,7 @@ GameObject:
   - component: {fileID: 1885642640}
   - component: {fileID: 1885642639}
   - component: {fileID: 1885642638}
+  - component: {fileID: 1885642643}
   m_Layer: 0
   m_Name: Fridge
   m_TagString: Untagged
@@ -1478,10 +1556,24 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1885642637}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.89, y: 7.44, z: -0.32335928}
+  m_LocalPosition: {x: -3.43, y: 5.71, z: -0.32335928}
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1885642643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1885642637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b992b91649b8b649957f7ece0ee80ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _goPathFinding: {fileID: 151184155}
+  _boxCollider: {fileID: 1885642640}
