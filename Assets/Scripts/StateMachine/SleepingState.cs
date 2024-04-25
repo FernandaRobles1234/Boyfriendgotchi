@@ -19,6 +19,8 @@ public class SleepingState : State
 
     private List<PathNode> _pathToBed;
 
+    Vector3 _moveDir;
+
     int _i = 0;
 
     public SleepingState(GameObject go, StateMachine sm) : base(go, sm)
@@ -32,7 +34,6 @@ public class SleepingState : State
         _controller = _go.GetComponent<AIController>();
 
         _BedObjects = GameObject.FindObjectsOfType<BedObject>();
-
         _initPathFindings = GameObject.FindObjectsOfType<InitPathFinding>();
 
         Vector3 characterPosition = _go.transform.position;
@@ -44,13 +45,16 @@ public class SleepingState : State
 
     public override void FixedUpdate()
     {
-        
-        PathNode firstNode = _pathToBed[_i];
-        Vector3 characterPosition = _go.transform.position;
+        if (_i < _pathToBed.Count)
+        {
+            PathNode firstNode = _pathToBed[_i];
+            Vector3 characterPosition = _go.transform.position;
 
-        Vector3 _moveDir= _initPathFindings[0]._pathFinding._grid.GetWorldPosition(firstNode._x, firstNode._y + 3) - characterPosition ;
-        _charMotor._moveDir = _moveDir;
-        _charMotor._moveDir.Normalize();
+            _moveDir = _initPathFindings[0]._pathFinding._grid.GetWorldPosition(firstNode._x, firstNode._y + 2) - characterPosition;
+            _charMotor._moveDir = _moveDir;
+            _charMotor._moveDir.Normalize();
+        }
+        
 
         if (_charMotor.IsMoving())
         {
@@ -65,11 +69,14 @@ public class SleepingState : State
 
         if (_moveDir.sqrMagnitude < 0.5)
         {
-            _i++;
             if (_i >= _pathToBed.Count)
             {
                 _charMotor._moveDir = Vector3.zero;
                 _animator.SetBool("isWalking", false);
+            }
+            else
+            {
+                _i++;
             }
         }
     }

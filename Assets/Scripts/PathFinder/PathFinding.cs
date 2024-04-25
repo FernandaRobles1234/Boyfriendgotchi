@@ -104,8 +104,8 @@ public class PathFinding
             neighbourList.Add(GetNode(currentNode._x - 1, currentNode._y)); // Left
             if (currentNode._y - 1 >= 0) // Bottom-left
                 neighbourList.Add(GetNode(currentNode._x - 1, currentNode._y - 1));
-            if (currentNode._y + 1 < _grid.Height) // Top-left
-                neighbourList.Add(GetNode(currentNode._x - 1, currentNode._y + 1));
+            //if (currentNode._y + 1 < _grid.Height) // Top-left
+            //    neighbourList.Add(GetNode(currentNode._x - 1, currentNode._y + 1));
         }
 
         // Check right side
@@ -114,8 +114,8 @@ public class PathFinding
             neighbourList.Add(GetNode(currentNode._x + 1, currentNode._y)); // Right
             if (currentNode._y - 1 >= 0) // Bottom-right
                 neighbourList.Add(GetNode(currentNode._x + 1, currentNode._y - 1));
-            if (currentNode._y + 1 < _grid.Height) // Top-right
-                neighbourList.Add(GetNode(currentNode._x + 1, currentNode._y + 1));
+            //if (currentNode._y + 1 < _grid.Height) // Top-right
+            //    neighbourList.Add(GetNode(currentNode._x + 1, currentNode._y + 1));
         }
 
         // Check directly above and below
@@ -168,5 +168,22 @@ public class PathFinding
         }
         return lowestFCostNode;
 
+    }
+
+    public Vector3 RandomWorldPositionWithin(float centerX, float centerY, float within)
+    {
+        Vector3 randomPos= new Vector3(0, 0, 0);
+        int randomX;
+        int randomY;
+
+        do
+        {
+            randomPos = _grid.RandomWorldPositionWithin(centerX, centerY, within);
+            _grid.GetXY(randomPos, out randomX, out randomY);
+        }
+        // Check if the calculated grid coordinates are valid within the grid bounds
+        while (_grid.GetValue(randomX, randomY)._isWalkable == false);
+
+        return randomPos;
     }
 }

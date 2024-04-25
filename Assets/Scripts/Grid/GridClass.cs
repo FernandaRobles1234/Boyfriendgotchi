@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class GridClass<T>
@@ -88,5 +89,29 @@ public class GridClass<T>
         Debug.DrawLine(GetWorldPosition(width, 0), GetWorldPosition(width, height), Color.red, 1000f);
 
         
+    }
+
+    public Vector3 RandomWorldPositionWithin(float centerX, float centerY, float within)
+    {
+        Vector3 centerPos = new Vector3(centerX, centerY, 0);
+        Vector3 randomPos;
+
+        do
+        {
+            // Generate a random direction and distance within the specified radius
+            float angle = Random.Range(0, Mathf.PI * 2);
+            float distance = Random.Range(0, within);
+            float dx = Mathf.Cos(angle) * distance;
+            float dy = Mathf.Sin(angle) * distance;
+
+            // Convert to world position within the circle around the center
+            randomPos = new Vector3(centerX + dx, centerY + dy, 0);
+
+            Debug.Log("1");
+        }
+        // Check if the calculated grid coordinates are valid within the grid bounds
+        while (randomPos.x < startPosition.x + 2 || randomPos.x >= width + startPosition.x - 2 || randomPos.y < startPosition.y + 2 || randomPos.y >= height + startPosition.y - 2);
+
+        return randomPos;
     }
 }

@@ -9,6 +9,8 @@ public class PlayerBoundary : MonoBehaviour
     private float objectWidth;
     private float objectHeight;
 
+    public GameObject pathFinding;
+
     void Start()
     {
         // Get the screen bounds based on camera
