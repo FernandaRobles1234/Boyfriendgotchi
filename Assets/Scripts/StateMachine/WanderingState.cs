@@ -14,7 +14,7 @@ public class WanderingState : State
 
     private Vector3 _moveDir;
 
-    public const float _time= 5.0f;
+    public const float _time= 3.0f;
     private float _timeSinceLast;
 
     int _i = 0;
@@ -53,16 +53,12 @@ public class WanderingState : State
             characterPosition = _go.transform.position;
             Vector2 within = new Vector2(5, 20);
             Vector3 randomPos = _initPathFinding._pathFinding.RandomWorldPositionWithin(characterPosition.x, characterPosition.y, within);
-            Debug.Log("Character position " + characterPosition);
-            Debug.Log("random position " + randomPos);
 
             _pathToRandomPos = _initPathFinding._pathFinding.FindPath(characterPosition.x, characterPosition.y, randomPos.x, randomPos.y);
-
-            //Debug.Log("Printing random path");
-            //foreach (PathNode cell in _pathToRandomPos)
-            //{
-            //    Debug.Log(cell);
-            //}
+            if (_pathToRandomPos != null)
+            {
+                Debug.Log("Failure finding path");
+            }
 
             _timeSinceLast = 0.0f;
             _i = 0;
@@ -115,7 +111,5 @@ public class WanderingState : State
     }
     public override void Exit()
     {
-        _charMotor._moveDir = Vector3.zero;
-        _animator.SetBool("isWalking", false);
     }
 }

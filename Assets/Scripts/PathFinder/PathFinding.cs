@@ -98,31 +98,44 @@ public class PathFinding
     {
         List<PathNode> neighbourList = new List<PathNode>();
 
-        // Check left side
-        if (currentNode._x - 1 >= 0)
-        {
-            neighbourList.Add(GetNode(currentNode._x - 1, currentNode._y)); // Left
-            if (currentNode._y - 1 >= 0) // Bottom-left
-                neighbourList.Add(GetNode(currentNode._x - 1, currentNode._y - 1));
-            //if (currentNode._y + 1 < _grid.Height) // Top-left
-            //    neighbourList.Add(GetNode(currentNode._x - 1, currentNode._y + 1));
-        }
+        int boxWidth = 1;
+        int boxHeight = 2;
 
-        // Check right side
-        if (currentNode._x + 1 < _grid.Width)
-        {
-            neighbourList.Add(GetNode(currentNode._x + 1, currentNode._y)); // Right
-            if (currentNode._y - 1 >= 0) // Bottom-right
-                neighbourList.Add(GetNode(currentNode._x + 1, currentNode._y - 1));
-            //if (currentNode._y + 1 < _grid.Height) // Top-right
-            //    neighbourList.Add(GetNode(currentNode._x + 1, currentNode._y + 1));
-        }
+        int boxOffsetY = -2;
+        // Define movements with collision box consideration
+        int[] dx = {0, 1, 0, -1}; // Right, Down, Left, Up
+        int[] dy = {1, 0, -1, 0};
 
-        // Check directly above and below
-        if (currentNode._y - 1 >= 0) // Directly below
-            neighbourList.Add(GetNode(currentNode._x, currentNode._y - 1));
-        if (currentNode._y + 1 < _grid.Height) // Directly above
-            neighbourList.Add(GetNode(currentNode._x, currentNode._y + 1));
+        for (int direction = 0; direction < 4; direction++)
+        {
+            bool allWalkable = true;
+            for (int offsetX = 0; offsetX < boxWidth; offsetX++)
+            {
+                for (int offsetY = boxOffsetY; offsetY < boxHeight; offsetY++)
+                {
+                    int neighbourX = currentNode._x + dx[direction] + offsetX;
+                    int neighbourY = currentNode._y + dy[direction] + offsetY;
+                    if (neighbourX >= 0 && neighbourX < _grid.Width && neighbourY >= 0 && neighbourY < _grid.Height)
+                    {
+                        if (!_grid.GetValue(neighbourX, neighbourY)._isWalkable)
+                        {
+                            allWalkable = false;
+                            break;
+                        }
+                    }
+                    else
+                    {
+                        allWalkable = false;
+                        break;
+                    }
+                }
+                if (!allWalkable) break;
+            }
+            if (allWalkable)
+            {
+                neighbourList.Add(_grid.GetValue(currentNode._x + dx[direction], currentNode._y + dy[direction]));
+            }
+        }
 
         return neighbourList;
     }
