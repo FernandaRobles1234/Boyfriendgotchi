@@ -34,7 +34,7 @@ public class WanderingState : State
         _timeSinceLast = 0.0f;
 
         Vector3 characterPosition = _go.transform.position;
-        Vector2 within = new Vector2(5, 20);
+        int within = 15;
         Vector3 randomPos = _initPathFinding._pathFinding.RandomWorldPositionWithin(characterPosition.x, characterPosition.y, within);
         Debug.Log("Character position " + characterPosition);
         Debug.Log("random position " + randomPos);
@@ -51,7 +51,7 @@ public class WanderingState : State
         if (_time < _timeSinceLast)
         {
             characterPosition = _go.transform.position;
-            Vector2 within = new Vector2(5, 20);
+            int within = 5;
             Vector3 randomPos = _initPathFinding._pathFinding.RandomWorldPositionWithin(characterPosition.x, characterPosition.y, within);
 
             _pathToRandomPos = _initPathFinding._pathFinding.FindPath(characterPosition.x, characterPosition.y, randomPos.x, randomPos.y);

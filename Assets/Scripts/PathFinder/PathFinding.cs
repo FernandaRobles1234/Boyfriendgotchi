@@ -183,9 +183,9 @@ public class PathFinding
 
     }
 
-    public Vector3 RandomWorldPositionWithin(float centerX, float centerY, Vector2 within)
+    public Vector3 RandomWorldPositionWithin(float centerX, float centerY, float within)
     {
-        Vector3 randomPos;
+        Vector3 randomPos= new Vector3(0, 0, 0);
         int randomX;
         int randomY;
 
