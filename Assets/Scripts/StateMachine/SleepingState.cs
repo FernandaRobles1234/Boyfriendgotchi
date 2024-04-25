@@ -48,8 +48,7 @@ public class SleepingState : State
         PathNode firstNode = _pathToBed[_i];
         Vector3 characterPosition = _go.transform.position;
 
-        Debug.Log(firstNode);
-        Vector3 _moveDir= _initPathFindings[0]._pathFinding._grid.GetWorldPosition(firstNode._x, firstNode._y + 2) - characterPosition ;
+        Vector3 _moveDir= _initPathFindings[0]._pathFinding._grid.GetWorldPosition(firstNode._x, firstNode._y + 3) - characterPosition ;
         _charMotor._moveDir = _moveDir;
         _charMotor._moveDir.Normalize();
 
@@ -69,7 +68,6 @@ public class SleepingState : State
             _i++;
             if (_i >= _pathToBed.Count)
             {
-                // Once again check if we've reached the last node after incrementing
                 _charMotor._moveDir = Vector3.zero;
                 _animator.SetBool("isWalking", false);
             }

@@ -52,7 +52,7 @@ public class WanderingState : State
 
         _controller._sleepy += Time.deltaTime;
 
-        if(_controller._sleepy > AIController._sleepyMax)
+        if(_controller._sleepy > _controller._sleepyMax)
         {
             _sm._CurState = new SleepingState(_go, _sm);
         }
