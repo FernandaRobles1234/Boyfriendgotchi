@@ -45,7 +45,7 @@ public class WanderingState : State
 
             characterPosition = _go.transform.position;
 
-            _pathToRandomPos = _initPathFinding._pathFinding.FindPath(characterPosition.x, characterPosition.y, randomPos.x, randomPos.y);
+            _pathToRandomPos = _initPathFinding._pathFinding.FindPath(characterPosition.x, characterPosition.y - 1, randomPos.x, randomPos.y);
 
             _timeSinceLast = 0.0f;
             _iPath = 0;
@@ -58,7 +58,7 @@ public class WanderingState : State
             PathNode firstNode = _pathToRandomPos[_iPath];
             characterPosition = _go.transform.position;
 
-            _moveDir = _initPathFinding._pathFinding._grid.GetWorldPosition(firstNode._x, firstNode._y) - characterPosition;
+            _moveDir = _initPathFinding._pathFinding._grid.GetWorldPosition(firstNode._x, firstNode._y) - characterPosition - new Vector3(0, -1, 0);
             _charMotor._moveDir = _moveDir;
             _charMotor._moveDir.Normalize();
         }

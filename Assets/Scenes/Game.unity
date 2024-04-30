@@ -1410,7 +1410,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1869820138}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -1472,7 +1472,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c63c33255307494bac1a1ed6b2c6414, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sleepyMax: 10
+  _sleepyMax: 100
   _sleepy: 0
 --- !u!1 &1885642637
 GameObject:
