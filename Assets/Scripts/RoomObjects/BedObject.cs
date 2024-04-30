@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BedObject : MonoBehaviour
 {
+    public BoxCollider2D _BedZone;
     // Start is called before the first frame update
     void Start()
     {

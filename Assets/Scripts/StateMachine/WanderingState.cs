@@ -84,6 +84,7 @@ public class WanderingState : State
             _sm._CurState = new SleepingState(_go, _sm);
         }
 
+        // Handling end of path.
         if (_moveDir.sqrMagnitude < 0.5)
         {
             if (_iPath >= _pathToRandomPos.Count)
