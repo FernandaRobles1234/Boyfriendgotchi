@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class DepthSort : MonoBehaviour
 {
     private SpriteRenderer _spriteRenderer;
+    public int _offset = 0;
 
     void Start()
     {
@@ -13,6 +15,6 @@ public class DepthSort : MonoBehaviour
 
     void Update()
     {
-        _spriteRenderer.sortingOrder= (int)(transform.position.y * -100);
+        _spriteRenderer.sortingOrder= (int)((transform.position.y + _offset) * -100);
     }
 }
