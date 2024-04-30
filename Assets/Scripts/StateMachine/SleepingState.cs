@@ -9,6 +9,8 @@ using UnityEngine.AI;
 
 public class SleepingState : State
 {
+    
+
     CharacterMotor _charMotor;
     Animator _animator;
     AIController _controller;
@@ -21,6 +23,9 @@ public class SleepingState : State
     Vector3 _moveDir;
 
     int _i = 0;
+
+    BoxCollider2D _characterZone;
+    BoxCollider2D _bedZone;
 
     public SleepingState(GameObject go, StateMachine sm) : base(go, sm)
     {
@@ -39,11 +44,19 @@ public class SleepingState : State
         Vector3 bedPosition = _BedObjects[0].transform.position;
 
         _pathToBed = _initPathFindings[0]._pathFinding.FindPath(characterPosition.x, characterPosition.y - 1, bedPosition.x, bedPosition.y);
+
+        _characterZone= _go.GetComponent<BoxCollider2D>();
+        _bedZone= _BedObjects[0].GetComponent<BoxCollider2D>();
     }
 
 
     public override void FixedUpdate()
-    { 
+    {
+        if (_bedZone.isTrigger)
+        {
+            Debug.Log("Player in bed");
+        }
+
         if (_i < _pathToBed.Count)
         {
             PathNode firstNode = _pathToBed[_i];
