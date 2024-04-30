@@ -8,13 +8,13 @@ public class PathFinding
     private const int MOVE_STRAIGHT_COST = 10;
     private const int MOVE_DIAGONAL_CONST = 14;
 
-    public GridClass<PathNode> _grid;
+    public GridClass _grid;
 
     private List<PathNode> _openList;
     private List<PathNode> _closedList;
     public PathFinding(int width, int height, Vector3 origin)
     {
-        _grid = new GridClass<PathNode>(width, height, origin, 1.0f, (GridClass<PathNode> g, int x, int y) => new PathNode(g, x, y));
+        _grid = new GridClass(width, height, origin, 1.0f, (GridClass g, int x, int y) => new PathNode(g, x, y));
     }
 
     public List<PathNode> FindPath(float startX, float startY, float endX, float endY)
@@ -104,8 +104,8 @@ public class PathFinding
             neighbourList.Add(GetNode(currentNode._x - 1, currentNode._y)); // Left
             if (currentNode._y - 1 >= 0) // Bottom-left
                 neighbourList.Add(GetNode(currentNode._x - 1, currentNode._y - 1));
-            //if (currentNode._y + 1 < _grid.Height) // Top-left
-            //    neighbourList.Add(GetNode(currentNode._x - 1, currentNode._y + 1));
+            if (currentNode._y + 1 < _grid.Height) // Top-left
+                neighbourList.Add(GetNode(currentNode._x - 1, currentNode._y + 1));
         }
 
         // Check right side
@@ -114,8 +114,8 @@ public class PathFinding
             neighbourList.Add(GetNode(currentNode._x + 1, currentNode._y)); // Right
             if (currentNode._y - 1 >= 0) // Bottom-right
                 neighbourList.Add(GetNode(currentNode._x + 1, currentNode._y - 1));
-            //if (currentNode._y + 1 < _grid.Height) // Top-right
-            //    neighbourList.Add(GetNode(currentNode._x + 1, currentNode._y + 1));
+            if (currentNode._y + 1 < _grid.Height) // Top-right
+                neighbourList.Add(GetNode(currentNode._x + 1, currentNode._y + 1));
         }
 
         // Check directly above and below

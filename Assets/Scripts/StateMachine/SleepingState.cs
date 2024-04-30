@@ -44,13 +44,13 @@ public class SleepingState : State
 
 
     public override void FixedUpdate()
-    {
+    { 
         if (_i < _pathToBed.Count)
         {
             PathNode firstNode = _pathToBed[_i];
             Vector3 characterPosition = _go.transform.position;
 
-            _moveDir = _initPathFindings[0]._pathFinding._grid.GetWorldPosition(firstNode._x, firstNode._y + 2) - characterPosition;
+            _moveDir = _initPathFindings[0]._pathFinding._grid.GetWorldPosition(firstNode._x, firstNode._y) - characterPosition;
             _charMotor._moveDir = _moveDir;
             _charMotor._moveDir.Normalize();
         }
