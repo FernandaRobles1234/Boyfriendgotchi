@@ -13,6 +13,8 @@ public class AIController : MonoBehaviour
     public float _wanderingChangeTime = 5;
     public Vector2 _wanderingWithin = new Vector2(5, 20);
 
+    public GameObject _bubbleObject;
+
     private void Awake() 
     { 
         _sm = new StateMachine();
