@@ -12,7 +12,7 @@ public class WanderingState : State
     private InitPathFinding _initPathFinding;
     private List<PathNode> _pathToRandomPos;
 
-    private Vector3 _moveDir;
+
 
     public const float _time= 5.0f;
     private float _timeSinceLast= 6.0f;
@@ -36,6 +36,7 @@ public class WanderingState : State
     {
         _timeSinceLast += Time.fixedDeltaTime;
         Vector3 characterPosition = _go.transform.position;
+        Vector3 _toPosDir= Vector3.zero;
         
         // Pick and create a new path.
         if (_time < _timeSinceLast)
@@ -58,8 +59,8 @@ public class WanderingState : State
             PathNode firstNode = _pathToRandomPos[_iPath];
             characterPosition = _go.transform.position;
 
-            _moveDir = _initPathFinding._pathFinding._grid.GetWorldPosition(firstNode._x, firstNode._y) - characterPosition - new Vector3(0, -1, 0);
-            _charMotor._moveDir = _moveDir;
+            _toPosDir = _initPathFinding._pathFinding._grid.GetWorldPosition(firstNode._x, firstNode._y) - characterPosition - new Vector3(0, -1, 0);
+            _charMotor._moveDir = _toPosDir;
             _charMotor._moveDir.Normalize();
         }
 
@@ -85,7 +86,7 @@ public class WanderingState : State
         }
 
         // Handling end of path.
-        if (_moveDir.sqrMagnitude < 0.5)
+        if (_toPosDir.sqrMagnitude < 0.5)
         {
             if (_iPath >= _pathToRandomPos.Count)
             {
