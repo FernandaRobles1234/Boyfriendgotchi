@@ -8,13 +8,13 @@ public class PathFinding
     private const int MOVE_STRAIGHT_COST = 10;
     private const int MOVE_DIAGONAL_CONST = 14;
 
-    public GridClass<PathNode> _grid;
+    public GridClass _grid;
 
     private List<PathNode> _openList;
     private List<PathNode> _closedList;
     public PathFinding(int width, int height, Vector3 origin)
     {
-        _grid = new GridClass<PathNode>(width, height, origin, 1.0f, (GridClass<PathNode> g, int x, int y) => new PathNode(g, x, y));
+        _grid = new GridClass(width, height, origin, 1.0f, (GridClass g, int x, int y) => new PathNode(g, x, y));
     }
 
     public List<PathNode> FindPath(float startX, float startY, float endX, float endY)
@@ -98,44 +98,31 @@ public class PathFinding
     {
         List<PathNode> neighbourList = new List<PathNode>();
 
-        int boxWidth = 1;
-        int boxHeight = 2;
-
-        int boxOffsetY = -2;
-        // Define movements with collision box consideration
-        int[] dx = {0, 1, 0, -1}; // Right, Down, Left, Up
-        int[] dy = {1, 0, -1, 0};
-
-        for (int direction = 0; direction < 4; direction++)
+        // Check left side
+        if (currentNode._x - 1 >= 0)
         {
-            bool allWalkable = true;
-            for (int offsetX = 0; offsetX < boxWidth; offsetX++)
-            {
-                for (int offsetY = boxOffsetY; offsetY < boxHeight; offsetY++)
-                {
-                    int neighbourX = currentNode._x + dx[direction] + offsetX;
-                    int neighbourY = currentNode._y + dy[direction] + offsetY;
-                    if (neighbourX >= 0 && neighbourX < _grid.Width && neighbourY >= 0 && neighbourY < _grid.Height)
-                    {
-                        if (!_grid.GetValue(neighbourX, neighbourY)._isWalkable)
-                        {
-                            allWalkable = false;
-                            break;
-                        }
-                    }
-                    else
-                    {
-                        allWalkable = false;
-                        break;
-                    }
-                }
-                if (!allWalkable) break;
-            }
-            if (allWalkable)
-            {
-                neighbourList.Add(_grid.GetValue(currentNode._x + dx[direction], currentNode._y + dy[direction]));
-            }
+            neighbourList.Add(GetNode(currentNode._x - 1, currentNode._y)); // Left
+            if (currentNode._y - 1 >= 0) // Bottom-left
+                neighbourList.Add(GetNode(currentNode._x - 1, currentNode._y - 1));
+            if (currentNode._y + 1 < _grid.Height) // Top-left
+                neighbourList.Add(GetNode(currentNode._x - 1, currentNode._y + 1));
         }
+
+        // Check right side
+        if (currentNode._x + 1 < _grid.Width)
+        {
+            neighbourList.Add(GetNode(currentNode._x + 1, currentNode._y)); // Right
+            if (currentNode._y - 1 >= 0) // Bottom-right
+                neighbourList.Add(GetNode(currentNode._x + 1, currentNode._y - 1));
+            if (currentNode._y + 1 < _grid.Height) // Top-right
+                neighbourList.Add(GetNode(currentNode._x + 1, currentNode._y + 1));
+        }
+
+        // Check directly above and below
+        if (currentNode._y - 1 >= 0) // Directly below
+            neighbourList.Add(GetNode(currentNode._x, currentNode._y - 1));
+        if (currentNode._y + 1 < _grid.Height) // Directly above
+            neighbourList.Add(GetNode(currentNode._x, currentNode._y + 1));
 
         return neighbourList;
     }
@@ -183,9 +170,9 @@ public class PathFinding
 
     }
 
-    public Vector3 RandomWorldPositionWithin(float centerX, float centerY, float within)
+    public Vector3 RandomWorldPositionWithin(float centerX, float centerY, Vector2 within)
     {
-        Vector3 randomPos= new Vector3(0, 0, 0);
+        Vector3 randomPos;
         int randomX;
         int randomY;
 

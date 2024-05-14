@@ -10,7 +10,7 @@ public class GridNonWalkable : MonoBehaviour
     public BoxCollider2D _boxCollider;
 
     private PathFinding _pathFinding;
-    private GridClass<PathNode> _grid;
+    private GridClass _grid;
     private int _newX;
     private int _newY;
 
@@ -21,31 +21,19 @@ public class GridNonWalkable : MonoBehaviour
         _pathFinding = _goPathFinding.GetComponent<InitPathFinding>()._pathFinding;
         _grid = _pathFinding._grid;
 
-        Vector3 boundsInMeters = _boxCollider.bounds.size;
+        // Calculate the world position of the box collider bounds
+        Vector3 worldLowerLeft = _boxCollider.bounds.min;
+        Vector3 worldUpperRight = _boxCollider.bounds.max;
 
+        // Get grid coordinates for the lower-left and upper-right corners
+        _grid.GetXY(worldLowerLeft, out _newX, out _newY);
+        _grid.GetXY(worldUpperRight, out int endX, out int endY);
 
-        Vector3 startPosition = transform.position - (boundsInMeters * 0.5f);
-        _grid.GetXY(startPosition, out _newX, out _newY);
-
-        int columns = Mathf.CeilToInt(boundsInMeters.x / _grid.cellSize);
-        int rows = Mathf.CeilToInt(boundsInMeters.y / _grid.cellSize);
-
-        Vector3 endPosition = transform.position + (boundsInMeters * 0.5f);
-        _grid.GetXY(endPosition, out int endX, out int endY);
-
-        int requiredColumns = (endX - _newX) + 1;
-        int requiredRows = (endY - _newY) + 1;
-
-        columns = Mathf.Max(columns, requiredColumns);
-        rows = Mathf.Max(rows, requiredRows);
-
-        for (int i = 0; i < columns; i++)
+        // Iterate over the grid cells covered by the box collider
+        for (int xIndex = _newX; xIndex <= endX; xIndex++)
         {
-            for (int j = 0; j < rows; j++)
+            for (int yIndex = _newY; yIndex <= endY; yIndex++)
             {
-                int xIndex = _newX + i;
-                int yIndex = _newY + j;
-
                 if (xIndex < _grid.Width && yIndex < _grid.Height)
                 {
                     PathNode cell = _grid.GetValue(xIndex, yIndex);
@@ -53,11 +41,8 @@ public class GridNonWalkable : MonoBehaviour
                     {
                         cell._isWalkable = false;
                     }
-                    //Debug.Log($"val= {cell}");
                 }
             }
         }
-        //print("end");
     }
-
 }

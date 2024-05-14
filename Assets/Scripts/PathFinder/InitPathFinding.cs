@@ -12,12 +12,12 @@ public class InitPathFinding : MonoBehaviour
     void Awake()
     {
         _pathFinding = new PathFinding(w, h, transform.position);
-        _pathFinding._grid.DebugDrawGrid();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        //_pathFinding._grid.DebugDrawGrid();
     }
 }

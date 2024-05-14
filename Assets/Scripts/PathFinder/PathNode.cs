@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PathNode
 {
-    public GridClass<PathNode> _grid;
+    public GridClass _grid;
     public int _x;
     public int _y;
 
@@ -14,7 +14,7 @@ public class PathNode
 
     public bool _isWalkable;
     public PathNode _parentNode;
-    public PathNode(GridClass<PathNode> grid, int x, int y)
+    public PathNode(GridClass grid, int x, int y)
     {
         _grid = grid;
         _x = x;
