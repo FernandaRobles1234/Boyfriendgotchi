@@ -37,7 +37,13 @@ public class WanderingState : State
 
         Vector3 characterPosition = _go.transform.position;
         Vector3 _toPosDir= Vector3.zero;
-        
+
+        // Handle conditions for the state management.
+        if (_controller._sleepy > _controller._sleepyMax)
+        {
+            _sm._CurState = new SleepyState(_go, _sm);
+        }
+
         // Pick and create a new path.
         if (_controller._wanderingChangeTime < _timeSinceLast)
         {
@@ -59,12 +65,6 @@ public class WanderingState : State
             _charMotor._moveDir.Normalize();
         }
 
-        // Handle conditions for the state management.
-        if(_controller._sleepy > _controller._sleepyMax)
-        {
-            _sm._CurState = new SleepingState(_go, _sm);
-        }
-
         // Handling end of path.
         if (_toPosDir.sqrMagnitude < 0.5)
         {
@@ -77,7 +77,6 @@ public class WanderingState : State
             {
                 _iPath++;
             }
-
         }
 
         // Handle animations.

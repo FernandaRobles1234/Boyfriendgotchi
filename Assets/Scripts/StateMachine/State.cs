@@ -24,5 +24,5 @@ public abstract class State
     {}
 
     public virtual void Exit()
-    { }
+    {}
 }

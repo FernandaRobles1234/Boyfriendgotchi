@@ -9,6 +9,7 @@ public class AIController : MonoBehaviour
 
     public float _sleepyMax = 10;
     public float _sleepy= 0;
+    public float _sleepyMin = 2;
     public float _wanderingChangeTime = 5;
     public Vector2 _wanderingWithin = new Vector2(5, 20);
 
