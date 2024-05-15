@@ -19,14 +19,13 @@ public class WanderingState : State
 
     public WanderingState(GameObject go, StateMachine sm) : base(go, sm)
     {
-    }
-    public override void Enter()
-    {
         _charMotor = _go.GetComponent<CharacterMotor>();
         _animator = _go.GetComponent<Animator>();
         _controller = _go.GetComponent<AIController>();
         _initPathFinding = GameObject.FindObjectsOfType<InitPathFinding>()[0];
-
+    }
+    public override void Enter()
+    {
         _timeSinceLast = _controller._wanderingChangeTime + 1;
     }
 

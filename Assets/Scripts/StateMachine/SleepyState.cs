@@ -18,6 +18,8 @@ public class SleepyState : State
     private BedObject[] _BedObjects;
     private InitPathFinding[] _initPathFindings;
 
+    Animator _bubbleAnimator;
+
     private List<PathNode> _pathToBed;
 
     Vector3 _moveDir;
@@ -29,13 +31,15 @@ public class SleepyState : State
 
     public SleepyState(GameObject go, StateMachine sm) : base(go, sm)
     {
+        _charMotor = _go.GetComponent<CharacterMotor>();
+        _animator = _go.GetComponent<Animator>();
+        _controller = _go.GetComponent<AIController>();
     }
 
     public override void Enter()
     {
-        _charMotor = _go.GetComponent<CharacterMotor>();
-        _animator = _go.GetComponent<Animator>();
-        _controller = _go.GetComponent<AIController>();
+        _bubbleAnimator = _controller._bubbleObject.GetComponent<Animator>();
+        _bubbleAnimator.SetBool("isSleepy", true);
 
         _BedObjects = GameObject.FindObjectsOfType<BedObject>();
         _initPathFindings = GameObject.FindObjectsOfType<InitPathFinding>();
@@ -99,5 +103,7 @@ public class SleepyState : State
     {
         _charMotor._moveDir = Vector3.zero;
         _animator.SetBool("isWalking", false);
+
+        _bubbleAnimator.SetBool("isSleepy", false);
     }
 }

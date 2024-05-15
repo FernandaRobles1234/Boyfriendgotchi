@@ -22,13 +22,11 @@ public class SleepingState : State
         _charMotor = _go.GetComponent<CharacterMotor>();
         _animator = _go.GetComponent<Animator>();
         _controller = _go.GetComponent<AIController>();
-
-        _controller._bubbleObject.SetActive(true);
-        _bubbleAnimator = _controller._bubbleObject.GetComponent<Animator>();
     }
 
     public override void Enter()
     {
+        _bubbleAnimator = _controller._bubbleObject.GetComponent<Animator>();
         _bubbleAnimator.SetBool("isSleeping", true);
     }
     public override void FixedUpdate()
@@ -48,6 +46,5 @@ public class SleepingState : State
     public override void Exit()
     {
         _bubbleAnimator.SetBool("isSleeping", false);
-        _controller._bubbleObject.SetActive(false);
     }
 }
