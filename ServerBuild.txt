@@ -10,4 +10,4 @@ sudo ufw reload
 
 C:\Users\fieri>scp -r C:\Users\fieri\Documents\ProgrammingProyects\BoyfriendGotchi\docs\* root@purpurita.com:~/websocket-server/public
 
-wscat -c wss://purpurita.com:443
+wscat -c wss://purpurita.com:443cd Serv

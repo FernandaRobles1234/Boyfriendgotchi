@@ -8,7 +8,7 @@ namespace Mirror
     public class DistanceInterestManagement : InterestManagement
     {
         [Tooltip("The maximum range that objects will be visible at. Add DistanceInterestManagementCustomRange onto NetworkIdentities for custom ranges.")]
-        public int visRange = 10;
+        public int visRange = 500;
 
         [Tooltip("Rebuild all every 'rebuildInterval' seconds.")]
         public float rebuildInterval = 1;
@@ -25,7 +25,7 @@ namespace Mirror
         }
 
         [ServerCallback]
-        public override void Reset()
+        public override void ResetState()
         {
             lastRebuildTime = 0D;
             CustomRanges.Clear();
