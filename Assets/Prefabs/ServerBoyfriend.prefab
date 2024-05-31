@@ -17,10 +17,10 @@ GameObject:
   - component: {fileID: 3424467096044328605}
   - component: {fileID: 7526071493784375682}
   - component: {fileID: 637484228588015248}
-  - component: {fileID: 8792278209840519438}
-  - component: {fileID: 2639679548461869295}
+  - component: {fileID: -3606017969043093280}
+  - component: {fileID: 48582121269418790}
   m_Layer: 0
-  m_Name: Boyfriend
+  m_Name: ServerBoyfriend
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -40,7 +40,7 @@ Transform:
   m_Children:
   - {fileID: 5678348034243858356}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3979981457917067659
 SpriteRenderer:
@@ -244,7 +244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _offset: -1
---- !u!114 &8792278209840519438
+--- !u!114 &-3606017969043093280
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -261,7 +261,7 @@ MonoBehaviour:
   serverOnly: 0
   visibility: 0
   hasSpawned: 0
---- !u!114 &2639679548461869295
+--- !u!114 &48582121269418790
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

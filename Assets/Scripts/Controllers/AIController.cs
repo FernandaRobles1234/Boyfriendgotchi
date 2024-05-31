@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
 public class AIController : MonoBehaviour
 {
@@ -28,6 +29,7 @@ public class AIController : MonoBehaviour
     void Update()
     {
         _sm._CurState.Update();
+
     }
 
     void FixedUpdate()
