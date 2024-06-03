@@ -16,8 +16,6 @@ public class CharacterMotor : NetworkBehaviour
 
         // only simulate physics  on server
         _rb.simulated = true;
-
-        Debug.Log("Awake");
     }
 
     // only call this on server
