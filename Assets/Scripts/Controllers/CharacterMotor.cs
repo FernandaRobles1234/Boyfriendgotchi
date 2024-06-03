@@ -1,26 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
-public class CharacterMotor : MonoBehaviour
+public class CharacterMotor : NetworkBehaviour
 {
     public float _moveSpeed = 500;
     public Vector2 _moveDir;
 
-    private Rigidbody2D _rb;
+    public Rigidbody2D _rb;
     private float movementThreshold = 0.1f; // Threshold to consider the Rigidbody as moving
 
     private void Awake()
     {
-        _rb = GetComponent<Rigidbody2D>();
 
+        // only simulate physics  on server
+        _rb.simulated = true;
+
+        Debug.Log("Awake");
     }
 
+    // only call this on server
+    [ServerCallback]
     public void FixedUpdate()
     {
         _rb.AddForce(_moveDir * _moveSpeed * Time.fixedDeltaTime);
     }
 
+    // only call this on server
     public bool IsMoving()
     {
         return _rb.velocity.magnitude > movementThreshold;

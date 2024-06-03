@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3979981457917067659}
   - component: {fileID: 6903597162847215168}
   - component: {fileID: 6174161324374178053}
-  - component: {fileID: 6216161454478686413}
   - component: {fileID: 275797167002908202}
   - component: {fileID: 3424467096044328605}
   - component: {fileID: 7526071493784375682}
@@ -34,13 +33,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 950299231016537696}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19.4, y: 2.4, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5678348034243858356}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3979981457917067659
 SpriteRenderer:
@@ -142,18 +141,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &6216161454478686413
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 950299231016537696}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a610f1f3bfd8ca841b1b0b72db2e210b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &275797167002908202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,6 +153,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c63c33255307494bac1a1ed6b2c6414, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   _sleepyMax: 20
   _sleepy: 0
   _sleepyMin: 8
@@ -184,8 +174,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5dd4a4b858203e41b1fd6b049f78b78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   _moveSpeed: 5000
   _moveDir: {x: 0, y: 0}
+  _rb: {fileID: 6174161324374178053}
 --- !u!61 &7526071493784375682
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -273,18 +267,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a553cb17010b2403e8523b558bffbc14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  syncDirection: 1
+  syncDirection: 0
   syncMode: 0
   syncInterval: 0
   target: {fileID: 5755733603711121844}
   syncPosition: 1
-  syncRotation: 1
+  syncRotation: 0
   syncScale: 0
   onlySyncOnChange: 1
   compressRotation: 1
   interpolatePosition: 1
-  interpolateRotation: 1
-  interpolateScale: 1
+  interpolateRotation: 0
+  interpolateScale: 0
   coordinateSpace: 0
   sendIntervalMultiplier: 1
   timelineOffset: 0
