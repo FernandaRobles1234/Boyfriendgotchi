@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 
-public class AIController : MonoBehaviour
+public class AIController : NetworkBehaviour
 {
     private StateMachine _sm;
     private CharacterMotor _motor;
@@ -16,6 +16,8 @@ public class AIController : MonoBehaviour
 
     public GameObject _bubbleObject;
 
+    // only call this on server
+    [ServerCallback]
     private void Awake() 
     { 
         _sm = new StateMachine();
@@ -26,12 +28,16 @@ public class AIController : MonoBehaviour
     {
     }
 
+    // only call this on server
+    [ServerCallback]
     void Update()
     {
         _sm._CurState.Update();
 
     }
 
+    // only call this on server
+    [ServerCallback]
     void FixedUpdate()
     {
         _sm._CurState.FixedUpdate();

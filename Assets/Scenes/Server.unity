@@ -454,15 +454,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7489320585321126053, guid: 1000aa8755c8a8e4c9da77f912678d98, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.7539536
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7489320585321126053, guid: 1000aa8755c8a8e4c9da77f912678d98, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.8210478
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7489320585321126053, guid: 1000aa8755c8a8e4c9da77f912678d98, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9.783382
+      value: -40
       objectReference: {fileID: 0}
     - target: {fileID: 7489320585321126053, guid: 1000aa8755c8a8e4c9da77f912678d98, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1679,7 +1679,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1525019005702150334, guid: 2470755f889264a47ad468c4277f4afa, type: 3}
       propertyPath: clientUseWss
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1525019005702150334, guid: 2470755f889264a47ad468c4277f4afa, type: 3}
       propertyPath: waitBeforeSend
@@ -1687,7 +1687,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1525019005702150334, guid: 2470755f889264a47ad468c4277f4afa, type: 3}
       propertyPath: clientWebsocketSettings.ClientPortOption
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1525019005702150334, guid: 2470755f889264a47ad468c4277f4afa, type: 3}
       propertyPath: clientWebsocketSettings.CustomClientPort
@@ -1703,7 +1703,7 @@ PrefabInstance:
       objectReference: {fileID: 5954118021446950145, guid: 8f164a99fe949e84fa10846dc2c8a6ff, type: 3}
     - target: {fileID: 7760468148018889343, guid: 2470755f889264a47ad468c4277f4afa, type: 3}
       propertyPath: networkAddress
-      value: purpurita.com
+      value: localhost
       objectReference: {fileID: 0}
     - target: {fileID: 7760468148018889343, guid: 2470755f889264a47ad468c4277f4afa, type: 3}
       propertyPath: autoCreatePlayer
