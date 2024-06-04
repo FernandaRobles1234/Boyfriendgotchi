@@ -1681,6 +1681,18 @@ PrefabInstance:
       propertyPath: clientUseWss
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1525019005702150334, guid: 2470755f889264a47ad468c4277f4afa, type: 3}
+      propertyPath: waitBeforeSend
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1525019005702150334, guid: 2470755f889264a47ad468c4277f4afa, type: 3}
+      propertyPath: clientWebsocketSettings.ClientPortOption
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1525019005702150334, guid: 2470755f889264a47ad468c4277f4afa, type: 3}
+      propertyPath: clientWebsocketSettings.CustomClientPort
+      value: 27777
+      objectReference: {fileID: 0}
     - target: {fileID: 6498076039678057073, guid: 2470755f889264a47ad468c4277f4afa, type: 3}
       propertyPath: m_Name
       value: NetworkManager
@@ -1688,14 +1700,18 @@ PrefabInstance:
     - target: {fileID: 7760468148018889343, guid: 2470755f889264a47ad468c4277f4afa, type: 3}
       propertyPath: playerPrefab
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 5954118021446950145, guid: 8f164a99fe949e84fa10846dc2c8a6ff, type: 3}
     - target: {fileID: 7760468148018889343, guid: 2470755f889264a47ad468c4277f4afa, type: 3}
       propertyPath: networkAddress
       value: purpurita.com
       objectReference: {fileID: 0}
     - target: {fileID: 7760468148018889343, guid: 2470755f889264a47ad468c4277f4afa, type: 3}
       propertyPath: autoCreatePlayer
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7760468148018889343, guid: 2470755f889264a47ad468c4277f4afa, type: 3}
+      propertyPath: playerSpawnMethod
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7760468148018889343, guid: 2470755f889264a47ad468c4277f4afa, type: 3}
       propertyPath: spawnPrefabs.Array.size
@@ -1704,11 +1720,11 @@ PrefabInstance:
     - target: {fileID: 7760468148018889343, guid: 2470755f889264a47ad468c4277f4afa, type: 3}
       propertyPath: spawnPrefabs.Array.data[0]
       value: 
-      objectReference: {fileID: 950299231016537696, guid: 3a4b1cd2299e62c4f9e264110ec8b04d, type: 3}
+      objectReference: {fileID: 7100357215779456774, guid: 3a4b1cd2299e62c4f9e264110ec8b04d, type: 3}
     - target: {fileID: 7760468148018889343, guid: 2470755f889264a47ad468c4277f4afa, type: 3}
       propertyPath: spawnPrefabs.Array.data[1]
       value: 
-      objectReference: {fileID: 950299231016537696, guid: 3a4b1cd2299e62c4f9e264110ec8b04d, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 8151231684346953600, guid: 2470755f889264a47ad468c4277f4afa, type: 3}
       propertyPath: m_RootOrder
       value: -1

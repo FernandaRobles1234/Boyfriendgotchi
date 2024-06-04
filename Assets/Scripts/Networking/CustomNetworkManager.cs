@@ -13,16 +13,13 @@ public class CustomNetworkManager : NetworkManager
         base.OnStartServer();
 
         serverBoyfriend = Instantiate(spawnPrefabs.Find(prefab => prefab.name == "ServerBoyfriend"));
+        NetworkServer.Spawn(serverBoyfriend);
 
     }
     public override void OnServerReady(NetworkConnectionToClient conn)
     {
-
         base.OnServerReady(conn);
-
-        NetworkServer.Spawn(serverBoyfriend);
-
-        Debug.Log("Client connected");
+        Debug.Log("Client Ready");
     }
 
 }
