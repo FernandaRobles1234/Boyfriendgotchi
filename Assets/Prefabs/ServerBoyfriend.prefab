@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4817466408084641517}
   - component: {fileID: 5442753520394195184}
   - component: {fileID: 7826452511983532131}
+  - component: {fileID: 5359897388054253273}
   m_Layer: 0
   m_Name: Bubble
   m_TagString: Untagged
@@ -106,6 +107,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5359897388054253273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3554986590856720480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f6f3bf89aa97405989c802ba270f815, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  clientAuthority: 0
+  animator: {fileID: 5442753520394195184}
 --- !u!1 &7100357215779456774
 GameObject:
   m_ObjectHideFlags: 0
@@ -305,6 +323,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c63c33255307494bac1a1ed6b2c6414, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   _sleepyMax: 20
   _sleepy: 0
   _sleepyMin: 8
