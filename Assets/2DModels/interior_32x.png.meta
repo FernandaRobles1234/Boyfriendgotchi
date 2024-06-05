@@ -126,10 +126,10 @@ TextureImporter:
       name: interior_32x_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 192
-        width: 256
-        height: 352
+        x: 97
+        y: 481
+        width: 30
+        height: 63
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3696,9 +3696,9 @@ TextureImporter:
       name: interior_32x_170
       rect:
         serializedVersion: 2
-        x: 545
+        x: 546
         y: 160
-        width: 30
+        width: 29
         height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -4998,10 +4998,10 @@ TextureImporter:
       name: interior_32x_232
       rect:
         serializedVersion: 2
-        x: 545
-        y: 190
-        width: 30
-        height: 23
+        x: 160
+        y: 257
+        width: 32
+        height: 63
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -5009,8 +5009,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 69a1c7cb83c95e9438da29337ae53293
-      internalID: -1379068114
+      spriteID: 8890cfef481fbcf4f9f4e483bdc6529b
+      internalID: 697364188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: interior_32x_233
+      rect:
+        serializedVersion: 2
+        x: 546
+        y: 189
+        width: 29
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce54879952888164dbf4ba340d1cd274
+      internalID: -1528229368
       vertices: []
       indices: 
       edges: []
@@ -5175,7 +5196,8 @@ TextureImporter:
       interior_32x_23: 757102204
       interior_32x_230: 439876443
       interior_32x_231: -2029189368
-      interior_32x_232: -1379068114
+      interior_32x_232: 697364188
+      interior_32x_233: -1528229368
       interior_32x_24: 320112986
       interior_32x_25: 1299131520
       interior_32x_26: 564236186

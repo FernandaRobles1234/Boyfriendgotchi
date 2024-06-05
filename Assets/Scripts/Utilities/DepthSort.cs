@@ -15,6 +15,6 @@ public class DepthSort : MonoBehaviour
 
     void Update()
     {
-        _spriteRenderer.sortingOrder= (int)((transform.position.y + _offset) * -100);
+        _spriteRenderer.sortingOrder= (int)((transform.position.y + _offset) * - 100);
     }
 }

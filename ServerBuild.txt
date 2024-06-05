@@ -1,5 +1,3 @@
-Server Build
-
 scp -r C:\Users\fieri\Documents\ProgrammingProyects\BoyfriendGotchi\ServerBuild'* root@your_droplet_ip:~/ServerBuild
 
 sudo ufw allow 22/tcp
@@ -8,6 +6,7 @@ sudo ufw allow 443/tcp
 sudo ufw allow 8080/tcp
 sudo ufw reload
 
-C:\Users\fieri>scp -r C:\Users\fieri\Documents\ProgrammingProyects\BoyfriendGotchi\docs\* root@purpurita.com:~/websocket-server/public
-
 wscat -c wss://purpurita.com:443cd Serv
+
+scp -r C:\Users\fieri\OneDrive\Escritorio\Builds\Server\* root@purpurita.com:~/Builds/Server/
+scp -r C:\Users\fieri\OneDrive\Escritorio\Builds\Client\* root@purpurita.com:~/Builds/Client/public/
