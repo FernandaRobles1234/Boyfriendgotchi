@@ -203,11 +203,11 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  _sleepyMax: 20
+  _sleepyMax: 120
   _sleepy: 0
-  _sleepyMin: 8
-  _wanderingChangeTime: 5
-  _wanderingWithin: {x: 2, y: 20}
+  _sleepyMin: 80
+  _wanderingChangeTime: 10
+  _wanderingWithin: {x: 10, y: 30}
   _bubbleObject: {fileID: 2720406103677790984}
 --- !u!114 &5143375130186044480
 MonoBehaviour:
@@ -417,7 +417,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
