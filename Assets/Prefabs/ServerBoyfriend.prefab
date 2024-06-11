@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 2887031023586886569}
   - component: {fileID: 8259896090504363787}
   - component: {fileID: 2942812626565135257}
+  - component: {fileID: 5149592635322719518}
   m_Layer: 0
   m_Name: ServerBoyfriend
   m_TagString: Untagged
@@ -319,6 +320,18 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a610f1f3bfd8ca841b1b0b72db2e210b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5149592635322719518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525151609696008930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f6eba073b29ce140bb44a2d8912ba24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2720406103677790984
