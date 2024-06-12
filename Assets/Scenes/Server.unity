@@ -950,7 +950,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1083707191
 Transform:
   m_ObjectHideFlags: 0
@@ -2709,7 +2709,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1525019005702150334, guid: 2470755f889264a47ad468c4277f4afa, type: 3}
       propertyPath: clientUseWss
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1525019005702150334, guid: 2470755f889264a47ad468c4277f4afa, type: 3}
       propertyPath: waitBeforeSend
@@ -2717,7 +2717,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1525019005702150334, guid: 2470755f889264a47ad468c4277f4afa, type: 3}
       propertyPath: clientWebsocketSettings.ClientPortOption
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1525019005702150334, guid: 2470755f889264a47ad468c4277f4afa, type: 3}
       propertyPath: clientWebsocketSettings.CustomClientPort
@@ -2733,7 +2733,7 @@ PrefabInstance:
       objectReference: {fileID: 5954118021446950145, guid: 8f164a99fe949e84fa10846dc2c8a6ff, type: 3}
     - target: {fileID: 7760468148018889343, guid: 2470755f889264a47ad468c4277f4afa, type: 3}
       propertyPath: networkAddress
-      value: purpurita.com
+      value: localhost
       objectReference: {fileID: 0}
     - target: {fileID: 7760468148018889343, guid: 2470755f889264a47ad468c4277f4afa, type: 3}
       propertyPath: autoCreatePlayer

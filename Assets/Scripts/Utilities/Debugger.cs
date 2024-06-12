@@ -18,12 +18,18 @@ public class Debugger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _BoyfriendObjects = GameObject.FindObjectsOfType<BoyfriendObject>();
-        
+        _BoyfriendObjects = FindObjectsOfType<BoyfriendObject>();
+
         if (_BoyfriendObjects.Length == 0)
         {
             Debug.Log("No boyfriend object.");
         }
-
+        else
+        {
+            foreach (var boyfriend in _BoyfriendObjects)
+            {
+                Debug.Log("Boyfriend object transform: " + boyfriend.transform.position);
+            }
+        }
     }
 }

@@ -23,6 +23,8 @@ public class SleepyState : State
     BoxCollider2D _characterZone;
     BoxCollider2D _bedZone;
 
+    private int _offset = -1;
+
     public SleepyState(GameObject go, StateMachine sm) : base(go, sm)
     {
         _charMotor = _go.GetComponent<CharacterMotor>();
@@ -41,7 +43,7 @@ public class SleepyState : State
         Vector3 characterPosition = _go.transform.position;
         Vector3 bedPosition = _BedObjects[0].transform.position;
 
-        _pathToBed = _initPathFindings[0]._pathFinding.FindPath(characterPosition.x, characterPosition.y - 2, bedPosition.x, bedPosition.y);
+        _pathToBed = _initPathFindings[0]._pathFinding.FindPath(characterPosition.x, characterPosition.y + _offset, bedPosition.x, bedPosition.y + _offset);
 
         _characterZone= _go.GetComponent<BoxCollider2D>();
         _bedZone= _BedObjects[0].GetComponent<BoxCollider2D>();
@@ -62,7 +64,7 @@ public class SleepyState : State
             PathNode firstNode = _pathToBed[_i];
             Vector3 characterPosition = _go.transform.position;
 
-            _moveDir = _initPathFindings[0]._pathFinding._grid.GetWorldPosition(firstNode._x, firstNode._y) - characterPosition - new Vector3(0, -2, 0);
+            _moveDir = _initPathFindings[0]._pathFinding._grid.GetWorldPosition(firstNode._x, firstNode._y) - characterPosition - new Vector3(0, _offset, 0);
             _charMotor._moveDir = _moveDir;
             _charMotor._moveDir.Normalize();
         }
