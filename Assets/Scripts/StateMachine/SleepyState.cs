@@ -43,7 +43,7 @@ public class SleepyState : State
         Vector3 characterPosition = _go.transform.position;
         Vector3 bedPosition = _BedObjects[0].transform.position;
 
-        _pathToBed = _initPathFindings[0]._pathFinding.FindPath(characterPosition.x, characterPosition.y + _offset, bedPosition.x, bedPosition.y + _offset);
+        _pathToBed = _initPathFindings[0]._pathFinding.FindPath(characterPosition.x, characterPosition.y + _offset, bedPosition.x, bedPosition.y);
 
         _characterZone= _go.GetComponent<BoxCollider2D>();
         _bedZone= _BedObjects[0].GetComponent<BoxCollider2D>();
